@@ -57,7 +57,7 @@ const vishnu = {
   <img alt="Animated snake tracing my GitHub contribution calendar" src="./assets/contribution-snake.svg?v=dates" width="100%" />
 </picture>
 
-<sub>My GitHub contribution activity, reimagined as a teal snake. Refresh scheduled every six hours; public contribution activity only.</sub>
+<sub>My GitHub contribution activity, reimagined as a teal snake. Refresh scheduled every six hours; includes publicly visible anonymized private contribution counts.</sub>
 
 ### Beyond the build
 
