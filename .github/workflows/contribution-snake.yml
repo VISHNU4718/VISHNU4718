@@ -29,8 +29,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
         run: |
-          node <<'NODE'
-          const fs = require('fs');
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
           const calendarResponse = await fetch('https://api.github.com/graphql', {
             method: 'POST',
             headers: {Authorization: 'Bearer ' + process.env.GH_TOKEN, 'Content-Type': 'application/json'},
