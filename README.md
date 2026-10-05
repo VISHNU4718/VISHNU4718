@@ -52,9 +52,9 @@ const vishnu = {
 ### Contribution flow
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-snake-dark.svg?v=dates" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-snake.svg?v=dates" />
-  <img alt="Animated snake tracing my GitHub contribution calendar" src="./assets/contribution-snake.svg?v=dates" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-snake-dark.svg?v=private" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-snake.svg?v=private" />
+  <img alt="Animated snake tracing my GitHub contribution calendar" src="./assets/contribution-snake.svg?v=private" width="100%" />
 </picture>
 
 <sub>My GitHub contribution activity, reimagined as a teal snake. Refresh scheduled every six hours; includes publicly visible anonymized private contribution counts.</sub>
