@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.svg?v=refined" alt="B. Vishnu — Full-stack development and applied AI" width="100%" />
+  <img src="./assets/banner.svg?v=beernelli" alt="Beernelli Vishnu — Full-stack development and applied AI" width="100%" />
 </p>
 
 <p align="center">
@@ -15,7 +15,7 @@
 
 ### Build it. Understand it. Improve it.
 
-I'm **B. Vishnu**, a Computer Science & Information Technology undergraduate in Hyderabad. I build full-stack applications and explore applied AI, with a focus on real-time systems, computer vision and causal inference.
+I'm **Beernelli Vishnu**, a Computer Science & Information Technology undergraduate in Hyderabad. I build full-stack applications and explore applied AI, with a focus on real-time systems, computer vision and causal inference.
 
 I like connecting the model, API and interface into something useful—not leaving the idea in a notebook.
 
