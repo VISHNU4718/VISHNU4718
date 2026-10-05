@@ -64,9 +64,9 @@ Live GPS tracking, route batching and QR handoffs across customer, delivery and 
 ### Contribution flow
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-snake-dark.svg?v=persistent" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-snake.svg?v=persistent" />
-  <img alt="GitHub contribution calendar with persistent activity colours and an animated teal snake" src="./assets/contribution-snake.svg?v=persistent" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-snake-dark.svg?v=india-calendar" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-snake.svg?v=india-calendar" />
+  <img alt="GitHub contribution calendar with persistent activity colours and an animated teal snake" src="./assets/contribution-snake.svg?v=india-calendar" width="100%" />
 </picture>
 
 <sub>Real contribution activity, including anonymized private counts. Colours stay visible throughout the animation. Refresh scheduled every six hours; GitHub processing and image caching can delay recent activity.</sub>
