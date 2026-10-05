@@ -36,7 +36,7 @@ jobs:
           const calendarResponse = await fetch('https://api.github.com/graphql', {
             method: 'POST',
             headers: {Authorization: 'Bearer ' + process.env.GH_TOKEN, 'Content-Type': 'application/json'},
-            body: JSON.stringify({query: '{ user(login: "VISHNU4718") { contributionsCollection { contributionCalendar { weeks { firstDay contributionDays { date } } } } } }'})
+            body: JSON.stringify({query: '{ user(login: "VISHNU4718") { contributionsCollection { contributionCalendar { totalContributions weeks { firstDay contributionDays { date contributionCount contributionLevel } } } } } }'})
           });
           const calendarResult = await calendarResponse.json();
           const weeks = calendarResult.data?.user?.contributionsCollection?.contributionCalendar?.weeks;
@@ -46,6 +46,16 @@ jobs:
           function addDates(svg, dark) {
             const columns = new Set([...svg.matchAll(/<rect class="c[^"]*" x="(\d+)"/g)].map(match => Number(match[1]))).size;
             if (columns !== weeks.length) throw new Error('Calendar dimensions do not match dates');
+            const levels = {NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4};
+            svg = svg.replace(/<rect class="c[^"]*" x="(\d+)" y="(\d+)"([^>]*?)\/>/g, (rect, x, y, rest) => {
+              const column = Math.round((Number(x) - 2) / 16);
+              const row = Math.round((Number(y) - 2) / 16);
+              const day = weeks[column]?.contributionDays.find(day => new Date(day.date + 'T00:00:00Z').getUTCDay() === row);
+              if (!day) return rect;
+              const level = levels[day.contributionLevel];
+              if (level === undefined) throw new Error('Unknown contribution level');
+              return '<rect class="c" x="' + x + '" y="' + y + '"' + rest + ' style="fill:var(--c' + level + ');animation:none"><title>' + day.date + ': ' + day.contributionCount + ' contributions</title></rect>';
+            });
             let previousMonth = '';
             const labels = [];
             weeks.forEach((week, index) => {
@@ -58,7 +68,7 @@ jobs:
               labels.push('<text x="' + x + '" y="-28"' + (index > weeks.length - 4 ? ' text-anchor="end"' : '') + '>' + label + '</text>');
             });
             const caption = formatDate(days[0]) + ' – ' + formatDate(days[days.length - 1]);
-            const markup = '<g font-family="Arial, sans-serif" font-size="16" fill="' + (dark ? '#cbd5e1' : '#475569') + '"><text x="2" y="-57" font-size="20" font-weight="600">' + caption + '</text>' + labels.join('') + '</g>';
+            const markup = '<g font-family="Arial, sans-serif" font-size="16" fill="' + (dark ? '#cbd5e1' : '#475569') + '"><text x="2" y="-57" font-size="20" font-weight="600">' + caption + '</text><text x="846" y="-57" text-anchor="end">' + calendarResult.data.user.contributionsCollection.contributionCalendar.totalContributions + ' contributions</text>' + labels.join('') + '</g>';
             return svg.replace(/viewBox="(-?\d+) (-?\d+) (\d+) (\d+)"/, (_, x, y, w, h) => 'viewBox="' + x + ' ' + (Number(y) - 48) + ' ' + w + ' ' + (Number(h) + 48) + '"').replace(/height="192"/, 'height="240"').replace('</svg>', markup + '</svg>');
           }
           async function publish(name) {
