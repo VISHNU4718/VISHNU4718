@@ -49,6 +49,16 @@ const vishnu = {
 - **Storage & deployment:** MongoDB, MySQL, SQLite, Docker, AWS, Vercel
 - **Foundations:** Data structures & algorithms, OOP, DBMS, operating systems, computer networks
 
+### Contribution flow
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-snake.svg" />
+  <img alt="Animated snake tracing my GitHub contribution calendar" src="./assets/contribution-snake.svg" width="100%" />
+</picture>
+
+<sub>My GitHub contribution activity, reimagined as a teal snake. Refreshed daily.</sub>
+
 ### Beyond the build
 
 Training includes the **Palo Alto Cyber Security Virtual Internship through EduSkills**, **HP Foundation Data Science & Analytics**, and **Hugging Face's LLM course fundamentals**.
