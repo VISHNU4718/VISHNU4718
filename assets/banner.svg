@@ -11,11 +11,11 @@
 <path d="M790 0 610 340M940 0 760 340M1090 0 910 340" stroke="#253e4b" stroke-width="1"/>
 <circle class="halo" cx="1040" cy="170" r="95" fill="none" stroke="#78dcca" stroke-opacity=".6"/>
 <circle cx="1040" cy="170" r="65" fill="none" stroke="#78dcca" stroke-opacity=".4"/>
-<text x="70" y="74" font-family="monospace" font-size="16" fill="#78dcca" letter-spacing="3">CS STUDENT / CLASS OF 2027</text>
+<text x="70" y="74" font-family="monospace" font-size="16" fill="#78dcca" letter-spacing="3">CS &amp; IT / CLASS OF 2027</text>
 <text x="65" y="166" font-family="Segoe UI,Arial,sans-serif" font-size="78" font-weight="700" fill="#f3f6fc">B. Vishnu<tspan fill="#78dcca">.</tspan></text>
-<rect class="cursor" x="458" y="110" width="5" height="60" fill="#78dcca"/>
+<rect class="cursor" x="500" y="110" width="5" height="60" fill="#78dcca"/>
 <path class="signal" d="M865 170H945M1135 170H1200" stroke="#78dcca" stroke-width="2" fill="none"/>
-<text x="70" y="219" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="#bbc9d8">Building at the intersection of software &amp; AI.</text>
+<text x="70" y="219" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="#bbc9d8">Full-stack development &amp; Applied AI.</text>
 <text x="70" y="280" font-family="monospace" font-size="15" fill="#8196ad">MVSR ENGINEERING COLLEGE   ·   HYDERABAD, INDIA</text>
 <text x="994" y="184" font-family="monospace" font-size="43" fill="#78dcca">&lt;/&gt;</text>
 </svg>
