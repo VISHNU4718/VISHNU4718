@@ -33,10 +33,12 @@ jobs:
         run: |
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
+          const localDate = new Intl.DateTimeFormat('sv-SE', {timeZone: 'Asia/Kolkata'}).format(new Date());
+          const endOfLocalDay = localDate + 'T23:59:59+05:30';
           const calendarResponse = await fetch('https://api.github.com/graphql', {
             method: 'POST',
             headers: {Authorization: 'Bearer ' + process.env.GH_TOKEN, 'Content-Type': 'application/json'},
-            body: JSON.stringify({query: '{ user(login: "VISHNU4718") { contributionsCollection { contributionCalendar { totalContributions weeks { firstDay contributionDays { date contributionCount contributionLevel } } } } } }'})
+            body: JSON.stringify({query: 'query($to: DateTime!) { user(login: "VISHNU4718") { contributionsCollection(to: $to) { contributionCalendar { totalContributions weeks { firstDay contributionDays { date contributionCount contributionLevel } } } } } }', variables: {to: endOfLocalDay}})
           });
           const calendarResult = await calendarResponse.json();
           const weeks = calendarResult.data?.user?.contributionsCollection?.contributionCalendar?.weeks;
@@ -47,15 +49,14 @@ jobs:
             const columns = new Set([...svg.matchAll(/<rect class="c[^"]*" x="(\d+)"/g)].map(match => Number(match[1]))).size;
             if (columns !== weeks.length) throw new Error('Calendar dimensions do not match dates');
             const levels = {NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4};
-            svg = svg.replace(/<rect class="c[^"]*" x="(\d+)" y="(\d+)"([^>]*?)\/>/g, (rect, x, y, rest) => {
-              const column = Math.round((Number(x) - 2) / 16);
-              const row = Math.round((Number(y) - 2) / 16);
-              const day = weeks[column]?.contributionDays.find(day => new Date(day.date + 'T00:00:00Z').getUTCDay() === row);
-              if (!day) return rect;
+            const cells = [];
+            weeks.forEach((week, column) => week.contributionDays.forEach(day => {
+              const row = new Date(day.date + 'T00:00:00Z').getUTCDay();
               const level = levels[day.contributionLevel];
               if (level === undefined) throw new Error('Unknown contribution level');
-              return '<rect class="c" x="' + x + '" y="' + y + '"' + rest + ' style="fill:var(--c' + level + ');animation:none"><title>' + day.date + ': ' + day.contributionCount + ' contributions</title></rect>';
-            });
+              cells.push('<rect class="c" x="' + (column * 16 + 2) + '" y="' + (row * 16 + 2) + '" rx="2" ry="2" style="fill:var(--c' + level + ');animation:none"><title>' + day.date + ': ' + day.contributionCount + ' contributions</title></rect>');
+            }));
+            svg = svg.replace(/<rect class="c[^"]*"[^>]*\/>/g, '').replace('</style>', '</style>' + cells.join(''));
             let previousMonth = '';
             const labels = [];
             weeks.forEach((week, index) => {
