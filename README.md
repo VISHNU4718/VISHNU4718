@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.svg?v=beernelli" alt="Beernelli Vishnu — Full-stack development and applied AI" width="100%" />
+  <img src="https://raw.githubusercontent.com/VISHNU4718/VISHNU4718/59df9e6eadfa188e1288bd17ce4b12febe70c273/assets/banner.svg" alt="Beernelli Vishnu — Full-stack development and applied AI" width="100%" />
 </p>
 
 <p align="center">
