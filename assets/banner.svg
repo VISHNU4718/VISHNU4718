@@ -1,42 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Beernelli Vishnu — Full-stack development and applied AI. MVSR Engineering College, class of 2027.">
-<defs>
- <linearGradient id="base" x2="1" y2="1"><stop stop-color="#11172b"/><stop offset=".55" stop-color="#17223c"/><stop offset="1" stop-color="#253451"/></linearGradient>
- <radialGradient id="aura"><stop stop-color="#8b80d6" stop-opacity=".28"/><stop offset="1" stop-color="#8b80d6" stop-opacity="0"/></radialGradient>
- <linearGradient id="ribbon" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#72d3c4"/><stop offset=".5" stop-color="#a5b9ed"/><stop offset="1" stop-color="#b098da"/></linearGradient>
- <clipPath id="clip"><rect width="1200" height="360" rx="20"/></clipPath>
-</defs>
-<g clip-path="url(#clip)">
- <rect width="1200" height="360" fill="url(#base)"/>
- <ellipse cx="1030" cy="110" rx="330" ry="300" fill="url(#aura)"/>
- <g fill="none" stroke="#96a8cd" stroke-opacity=".1">
-  <path d="M715 360C727 208 817 239 863 120S1050 55 1210-38"/>
-  <path d="M740 380C752 228 842 259 888 140S1075 75 1235-18"/>
-  <path d="M765 400C777 248 867 279 913 160S1100 95 1260 2"/>
-  <path d="M690 340C702 188 792 219 838 100S1025 35 1185-58"/>
- </g>
- <path d="M875 365C762 227 1000 267 985 147S1107 21 1260 63" fill="none" stroke="url(#ribbon)" stroke-width="38" opacity=".12"/>
- <path d="M875 365C762 227 1000 267 985 147S1107 21 1260 63" fill="none" stroke="url(#ribbon)" stroke-width="1.5" opacity=".65"/>
- <rect x="62" y="57" width="5" height="20" rx="2.5" fill="#8edbca"/>
- <text x="80" y="72" font-family="Segoe UI,Arial,sans-serif" font-size="14" font-weight="600" letter-spacing="2.3" fill="#a9dbd3">COMPUTER SCIENCE · CLASS OF 2027</text>
- <text x="60" y="160" font-family="Segoe UI,Arial,sans-serif" font-size="65" font-weight="700" letter-spacing="-1.5" fill="#f3f5fb">Beernelli Vishnu<tspan fill="#8edbca">.</tspan></text>
- <text x="64" y="211" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="#c7d1e6">Full-stack development &amp; applied AI</text>
- <path d="M64 244H645" stroke="#a6b8d9" stroke-opacity=".18"/>
- <text x="64" y="278" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#9eafcb">MVSR Engineering College</text>
- <circle cx="271" cy="273" r="2" fill="#8edbca"/>
- <text x="285" y="278" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#9eafcb">Hyderabad, India</text>
- <g transform="translate(848 85)">
-  <rect x="0" y="0" width="235" height="170" rx="18" fill="#182740" stroke="#9dafd4" stroke-opacity=".25"/>
-  <rect x="20" y="20" width="74" height="7" rx="3.5" fill="#a5b9ed" opacity=".7"/>
-  <path d="M0 46H235" stroke="#9dafd4" stroke-opacity=".15"/>
-  <text x="23" y="113" font-family="Consolas,monospace" font-size="45" fill="#a3e0d4">&lt;/&gt;</text>
-  <rect x="23" y="140" width="96" height="4" rx="2" fill="#8f9fbf" opacity=".4"/>
-  <rect x="130" y="140" width="38" height="4" rx="2" fill="#b098da" opacity=".6"/>
- </g>
- <g transform="translate(1027 224)">
-  <rect width="101" height="58" rx="12" fill="#22354e" stroke="#8edbca" stroke-opacity=".35"/>
-  <circle cx="27" cy="29" r="5" fill="#8edbca"/>
-  <path d="M38 29H51M51 29L63 17M51 29L63 41" fill="none" stroke="#a5b9ed" stroke-width="2"/>
-  <circle cx="70" cy="16" r="4" fill="#b098da"/><circle cx="70" cy="42" r="4" fill="#a5b9ed"/>
- </g>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101a30"/><stop offset="1" stop-color="#202d49"/></linearGradient>
+<style>
+@keyframes paper{0%,5%{opacity:0;transform:translateY(12px)}12%,25%{opacity:1;transform:translateY(0)}32%,100%{opacity:0;transform:translateY(0)}}
+@keyframes fold{0%,24%{opacity:0;transform:scale(.6)}32%,41%{opacity:1;transform:scale(1)}45%,100%{opacity:0;transform:scale(1)}}
+@keyframes fly{0%,31%{opacity:0;transform:translate(0,0) rotate(0deg)}38%,43%{opacity:1;transform:translate(0,0) rotate(0deg)}57%{opacity:1;transform:translate(80px,-105px) rotate(-18deg)}73%{opacity:1;transform:translate(209px,-157px) rotate(8deg)}84%{opacity:0;transform:translate(266px,-146px) rotate(15deg)}100%{opacity:0;transform:translate(266px,-146px)}}
+@keyframes arm{0%,15%,100%{transform:rotate(0deg)}24%,33%{transform:rotate(-12deg)}43%,57%{transform:rotate(-38deg)}70%{transform:rotate(0deg)}}
+@keyframes trail{0%,44%{stroke-dashoffset:1;opacity:0}56%{opacity:.6}78%{stroke-dashoffset:0;opacity:.6}92%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes blink{0%,47%,51%,100%{transform:scaleY(1)}49%{transform:scaleY(.1)}}
+.paper{animation:paper 10s ease-in-out infinite}.fold{transform-origin:920px 205px;animation:fold 10s ease-in-out infinite}.plane{animation:fly 10s ease-in-out infinite;transform-origin:920px 205px}.arm{transform-origin:887px 245px;animation:arm 10s ease-in-out infinite}.trail{stroke-dasharray:1;stroke-dashoffset:1;animation:trail 10s ease-in-out infinite}.eyes{transform-box:fill-box;transform-origin:center;animation:blink 10s infinite}
+@media(prefers-reduced-motion:reduce){.paper,.fold,.plane,.arm,.trail,.eyes{animation:none}.paper,.fold{opacity:0}.plane{opacity:1}.trail{stroke-dashoffset:0}}
+</style></defs>
+<rect width="1200" height="360" rx="20" fill="url(#bg)"/>
+<path d="M760 0L684 360H1180Q1200 360 1200 340V20Q1200 0 1180 0Z" fill="#afbddb" opacity=".035"/>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="60" y="61" font-size="11" font-weight="600" letter-spacing="3" fill="#a7b9da">CODE / CRAFT / CURIOSITY</text><text x="56" y="140" font-size="58" font-weight="750" letter-spacing="-2.6" fill="#eef1f7">Beernelli Vishnu</text><text x="60" y="185" font-size="21" fill="#b8c5dd">Full-stack development · Applied AI</text><path d="M60 218H110" stroke="#8b9fc9" stroke-width="3"/><text x="60" y="257" font-size="16" fill="#d1daeb">CS &amp; IT undergraduate · Class of 2027</text><text x="60" y="284" font-size="15" fill="#8fa2c4">MVSR Engineering College · Hyderabad, India</text><text x="60" y="326" font-size="10" letter-spacing="2.4" fill="#8195ba">THOUGHTFUL SYSTEMS. REAL-WORLD IDEAS.</text></g>
+<circle cx="966" cy="173" r="114" fill="#9cafd5" opacity=".035"/>
+<path d="M911 207C947 163 960 102 1013 77S1108 68 1149 78" fill="none" stroke="#91a9d4" stroke-width="1.5" stroke-dasharray="4 6" opacity=".15"/>
+<path class="trail" pathLength="1" d="M911 207C947 163 960 102 1013 77S1108 68 1149 78" fill="none" stroke="#b1c9e9" stroke-width="2"/>
+<ellipse cx="863" cy="295" rx="64" ry="9" fill="#090f20" opacity=".6"/>
+<g stroke="#9eafd1" stroke-width="2.5" stroke-linejoin="round">
+<path d="M855 172V162"/><circle cx="855" cy="158" r="4" fill="#ccd8ef"/>
+<rect x="821" y="177" width="68" height="51" rx="17" fill="#a5b9d5"/><rect x="829" y="185" width="52" height="32" rx="11" fill="#172a43" stroke="none"/>
+<g class="eyes" fill="#d4e6ff" stroke="none"><circle cx="843" cy="199" r="4"/><circle cx="868" cy="199" r="4"/></g><path d="M849 208Q855 213 862 208" fill="none" stroke="#d4e6ff" stroke-width="1.5"/>
+<rect x="833" y="234" width="45" height="44" rx="11" fill="#8098ba"/><text x="855" y="260" text-anchor="middle" fill="#13243b" stroke="none" font-family="Consolas,monospace" font-size="17">&lt;/&gt;</text>
+<path d="M846 278V290H835M867 278V290H879M831 244L816 258" fill="none" stroke-width="6" stroke-linecap="round"/>
+<g class="arm"><path d="M882 245L903 222L917 218" fill="none" stroke-width="6" stroke-linecap="round"/><circle cx="919" cy="216" r="5" fill="#bdcbe1"/></g></g>
+<g class="paper"><rect x="905" y="175" width="37" height="49" rx="3" fill="#e1e8f3" transform="rotate(12 923 200)"/><path d="M914 190H931M914 198H928M914 206H933" stroke="#6d86ac" stroke-width="2"/><text x="906" y="164" font-family="Consolas,monospace" font-size="11" fill="#91a9cc">idea.js</text></g>
+<g class="fold"><path d="M901 205L944 184L924 222Z" fill="#c7d6eb"/><path d="M901 205L924 201L944 184" fill="none" stroke="#738cb2"/></g>
+<g class="plane"><path d="M901 209L951 188L931 229L920 213Z" fill="#eef3fa"/><path d="M901 209L928 208L951 188L920 213L922 225L928 217" fill="#9fb7d8"/><path d="M920 213L951 188" stroke="#d4e0f1" stroke-width="1"/></g>
+<g fill="#a5bad9"><circle cx="786" cy="110" r="2"/><circle cx="1097" cy="169" r="2"/></g><path d="M1056 43V53M1051 48H1061M1131 243V251M1127 247H1135" stroke="#7f98be"/>
+<text x="969" y="329" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="10" letter-spacing="2.5" fill="#8da2cb">FROM AN IDEA TO A LAUNCH.</text>
 </svg>
