@@ -1,21 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Beernelli Vishnu, building at the intersection of software and AI">
-<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#182b39"/></linearGradient></defs>
-<style>
-@keyframes blink{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}
-@keyframes pulse{0%,100%{opacity:.3}50%{opacity:.8}}
-@keyframes flow{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
-.cursor{animation:blink 1.3s step-end infinite}.halo{animation:pulse 4s ease-in-out infinite}.signal{stroke-dasharray:8 25;animation:flow 6s linear infinite}
-@media(prefers-reduced-motion:reduce){.cursor,.halo,.signal{animation:none}}
-</style>
-<rect width="1200" height="340" rx="18" fill="url(#bg)"/>
-<path d="M790 0 610 340M940 0 760 340M1090 0 910 340" stroke="#253e4b" stroke-width="1"/>
-<circle class="halo" cx="1040" cy="170" r="95" fill="none" stroke="#78dcca" stroke-opacity=".6"/>
-<circle cx="1040" cy="170" r="65" fill="none" stroke="#78dcca" stroke-opacity=".4"/>
-<text x="70" y="74" font-family="monospace" font-size="16" fill="#78dcca" letter-spacing="3">CS &amp; IT / CLASS OF 2027</text>
-<text x="65" y="166" font-family="Segoe UI,Arial,sans-serif" font-size="68" font-weight="700" fill="#f3f6fc">Beernelli Vishnu<tspan fill="#78dcca">.</tspan></text>
-<rect class="cursor" x="610" y="113" width="5" height="54" fill="#78dcca"/>
-<path class="signal" d="M865 170H945M1135 170H1200" stroke="#78dcca" stroke-width="2" fill="none"/>
-<text x="70" y="219" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="#bbc9d8">Full-stack development &amp; Applied AI.</text>
-<text x="70" y="280" font-family="monospace" font-size="15" fill="#8196ad">MVSR ENGINEERING COLLEGE   ·   HYDERABAD, INDIA</text>
-<text x="994" y="184" font-family="monospace" font-size="43" fill="#78dcca">&lt;/&gt;</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Beernelli Vishnu — Full-stack development and applied AI. MVSR Engineering College, class of 2027.">
+<defs>
+ <linearGradient id="base" x2="1" y2="1"><stop stop-color="#11172b"/><stop offset=".55" stop-color="#17223c"/><stop offset="1" stop-color="#253451"/></linearGradient>
+ <radialGradient id="aura"><stop stop-color="#8b80d6" stop-opacity=".28"/><stop offset="1" stop-color="#8b80d6" stop-opacity="0"/></radialGradient>
+ <linearGradient id="ribbon" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#72d3c4"/><stop offset=".5" stop-color="#a5b9ed"/><stop offset="1" stop-color="#b098da"/></linearGradient>
+ <clipPath id="clip"><rect width="1200" height="360" rx="20"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+ <rect width="1200" height="360" fill="url(#base)"/>
+ <ellipse cx="1030" cy="110" rx="330" ry="300" fill="url(#aura)"/>
+ <g fill="none" stroke="#96a8cd" stroke-opacity=".1">
+  <path d="M715 360C727 208 817 239 863 120S1050 55 1210-38"/>
+  <path d="M740 380C752 228 842 259 888 140S1075 75 1235-18"/>
+  <path d="M765 400C777 248 867 279 913 160S1100 95 1260 2"/>
+  <path d="M690 340C702 188 792 219 838 100S1025 35 1185-58"/>
+ </g>
+ <path d="M875 365C762 227 1000 267 985 147S1107 21 1260 63" fill="none" stroke="url(#ribbon)" stroke-width="38" opacity=".12"/>
+ <path d="M875 365C762 227 1000 267 985 147S1107 21 1260 63" fill="none" stroke="url(#ribbon)" stroke-width="1.5" opacity=".65"/>
+ <rect x="62" y="57" width="5" height="20" rx="2.5" fill="#8edbca"/>
+ <text x="80" y="72" font-family="Segoe UI,Arial,sans-serif" font-size="14" font-weight="600" letter-spacing="2.3" fill="#a9dbd3">COMPUTER SCIENCE · CLASS OF 2027</text>
+ <text x="60" y="160" font-family="Segoe UI,Arial,sans-serif" font-size="65" font-weight="700" letter-spacing="-1.5" fill="#f3f5fb">Beernelli Vishnu<tspan fill="#8edbca">.</tspan></text>
+ <text x="64" y="211" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="#c7d1e6">Full-stack development &amp; applied AI</text>
+ <path d="M64 244H645" stroke="#a6b8d9" stroke-opacity=".18"/>
+ <text x="64" y="278" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#9eafcb">MVSR Engineering College</text>
+ <circle cx="271" cy="273" r="2" fill="#8edbca"/>
+ <text x="285" y="278" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#9eafcb">Hyderabad, India</text>
+ <g transform="translate(848 85)">
+  <rect x="0" y="0" width="235" height="170" rx="18" fill="#182740" stroke="#9dafd4" stroke-opacity=".25"/>
+  <rect x="20" y="20" width="74" height="7" rx="3.5" fill="#a5b9ed" opacity=".7"/>
+  <path d="M0 46H235" stroke="#9dafd4" stroke-opacity=".15"/>
+  <text x="23" y="113" font-family="Consolas,monospace" font-size="45" fill="#a3e0d4">&lt;/&gt;</text>
+  <rect x="23" y="140" width="96" height="4" rx="2" fill="#8f9fbf" opacity=".4"/>
+  <rect x="130" y="140" width="38" height="4" rx="2" fill="#b098da" opacity=".6"/>
+ </g>
+ <g transform="translate(1027 224)">
+  <rect width="101" height="58" rx="12" fill="#22354e" stroke="#8edbca" stroke-opacity=".35"/>
+  <circle cx="27" cy="29" r="5" fill="#8edbca"/>
+  <path d="M38 29H51M51 29L63 17M51 29L63 41" fill="none" stroke="#a5b9ed" stroke-width="2"/>
+  <circle cx="70" cy="16" r="4" fill="#b098da"/><circle cx="70" cy="42" r="4" fill="#a5b9ed"/>
+ </g>
+</g>
 </svg>
