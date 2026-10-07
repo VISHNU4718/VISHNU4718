@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/VISHNU4718/VISHNU4718/59df9e6eadfa188e1288bd17ce4b12febe70c273/assets/banner.svg" alt="Beernelli Vishnu — Full-stack development and applied AI" width="100%" />
+  <img src="https://raw.githubusercontent.com/VISHNU4718/VISHNU4718/main/assets/banner.svg" alt="Beernelli Vishnu — Full-stack development and applied AI" width="100%" />
 </p>
 
 <p align="center">
@@ -61,15 +61,15 @@ Live GPS tracking, route batching and QR handoffs across customer, delivery and 
 
 **Storage & deployment** · MongoDB, MySQL, SQLite · Docker, AWS, Vercel
 
-### Contribution flow
+### Contribution Observatory
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-snake-dark.svg?v=india-calendar" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-snake.svg?v=india-calendar" />
-  <img alt="GitHub contribution calendar with persistent activity colours and an animated teal snake" src="./assets/contribution-snake.svg?v=india-calendar" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-observatory-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-observatory.svg" />
+  <img alt="Contribution Observatory: dated GitHub activity dots, animated scan and weekly activity skyline" src="./assets/contribution-observatory.svg" width="100%" />
 </picture>
 
-<sub>Real contribution activity, including anonymized private counts. Colours stay visible throughout the animation. Refresh scheduled every six hours; GitHub processing and image caching can delay recent activity.</sub>
+<sub>GitHub calendar counts—not commit counts—with dated activity dots and a weekly skyline. Colours stay visible during the scan. Refreshed every six hours and when profile source changes; GitHub processing and image caching may delay recent activity.</sub>
 
 ### Learning & next steps
 
