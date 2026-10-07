@@ -61,15 +61,13 @@ Live GPS tracking, route batching and QR handoffs across customer, delivery and 
 
 **Storage & deployment** · MongoDB, MySQL, SQLite · Docker, AWS, Vercel
 
-### Contribution Observatory
+### Growing ideas into code
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-observatory-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-observatory.svg" />
-  <img alt="Contribution Observatory: dated GitHub activity dots, animated scan and weekly activity skyline" src="./assets/contribution-observatory.svg" width="100%" />
-</picture>
+<p align="center">
+  <img src="./assets/contribution-garden.svg" alt="A robot gardener waters a flower calendar of real GitHub contributions. Blue flowers: 1–3, purple: 4–9, pink: 10–19, yellow: 20 or more contributions per day; empty spots: zero." width="100%" />
+</p>
 
-<sub>GitHub calendar counts—not commit counts—with dated activity dots and a weekly skyline. Colours stay visible during the scan. Refreshed every six hours and when profile source changes; GitHub processing and image caching may delay recent activity.</sub>
+<sub>One spot = one day. The V robot waters active days and returns to its code dock; flower colours preserve the actual counts. Refreshed every six hours and on profile-source changes. GitHub processing and image caching may delay new activity. [Open the garden](./assets/contribution-garden.svg) to inspect date-and-count details in a direct SVG viewer.</sub>
 
 ### Learning & next steps
 
