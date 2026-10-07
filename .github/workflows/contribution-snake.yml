@@ -1,4 +1,4 @@
-name: Contribution snake
+name: Contribution Observatory
 on:
   schedule:
     - cron: "17 */6 * * *"
@@ -6,12 +6,13 @@ on:
   push:
     paths:
       - ".github/workflows/contribution-snake.yml"
+      - "scripts/contribution-observatory.mjs"
       - "README.md"
       - "assets/banner.svg"
 permissions:
   contents: read
 concurrency:
-  group: contribution-snake
+  group: contribution-observatory
   cancel-in-progress: false
 jobs:
   generate:
@@ -19,73 +20,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Generate teal contribution animation
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: VISHNU4718
-          outputs: |
-            dist/contribution-snake.svg?color_snake=%2378dcca&color_dots=%23ebf2f5,%23c0e5df,%2387cfc0,%2348a98e,%232c786b
-            dist/contribution-snake-dark.svg?palette=github-dark&color_snake=%2378dcca&color_dots=%2314202d,%231c3f43,%23296060,%2341998c,%2378dcca
-      - name: Publish generated images
+      - uses: actions/checkout@v4
+      - name: Generate and refresh contribution observatory
         env:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
-        run: |
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          const localDate = new Intl.DateTimeFormat('sv-SE', {timeZone: 'Asia/Kolkata'}).format(new Date());
-          const endOfLocalDay = localDate + 'T23:59:59+05:30';
-          const calendarResponse = await fetch('https://api.github.com/graphql', {
-            method: 'POST',
-            headers: {Authorization: 'Bearer ' + process.env.GH_TOKEN, 'Content-Type': 'application/json'},
-            body: JSON.stringify({query: 'query($to: DateTime!) { user(login: "VISHNU4718") { contributionsCollection(to: $to) { contributionCalendar { totalContributions weeks { firstDay contributionDays { date contributionCount contributionLevel } } } } } }', variables: {to: endOfLocalDay}})
-          });
-          const calendarResult = await calendarResponse.json();
-          const weeks = calendarResult.data?.user?.contributionsCollection?.contributionCalendar?.weeks;
-          if (!calendarResponse.ok || !weeks?.length) throw new Error('Cannot read calendar dates');
-          const days = weeks.flatMap(week => week.contributionDays.map(day => day.date));
-          const formatDate = date => new Date(date + 'T00:00:00Z').toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'});
-          function addDates(svg, dark) {
-            const columns = new Set([...svg.matchAll(/<rect class="c[^"]*" x="(\d+)"/g)].map(match => Number(match[1]))).size;
-            if (columns !== weeks.length) throw new Error('Calendar dimensions do not match dates');
-            const levels = {NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4};
-            const cells = [];
-            weeks.forEach((week, column) => week.contributionDays.forEach(day => {
-              const row = new Date(day.date + 'T00:00:00Z').getUTCDay();
-              const level = levels[day.contributionLevel];
-              if (level === undefined) throw new Error('Unknown contribution level');
-              cells.push('<rect class="c" x="' + (column * 16 + 2) + '" y="' + (row * 16 + 2) + '" rx="2" ry="2" style="fill:var(--c' + level + ');animation:none"><title>' + day.date + ': ' + day.contributionCount + ' contributions</title></rect>');
-            }));
-            svg = svg.replace(/<rect class="c[^"]*"[^>]*\/>/g, '').replace('</style>', '</style>' + cells.join(''));
-            let previousMonth = '';
-            const labels = [];
-            weeks.forEach((week, index) => {
-              const date = week.contributionDays[0].date;
-              const month = date.slice(0, 7);
-              if (month === previousMonth) return;
-              previousMonth = month;
-              const label = new Date(date + 'T00:00:00Z').toLocaleDateString('en-GB', {month: 'short', timeZone: 'UTC'});
-              const x = index * 16 + 2;
-              labels.push('<text x="' + x + '" y="-28"' + (index > weeks.length - 4 ? ' text-anchor="end"' : '') + '>' + label + '</text>');
-            });
-            const caption = formatDate(days[0]) + ' – ' + formatDate(days[days.length - 1]);
-            const markup = '<g font-family="Arial, sans-serif" font-size="16" fill="' + (dark ? '#cbd5e1' : '#475569') + '"><text x="2" y="-57" font-size="20" font-weight="600">' + caption + '</text><text x="846" y="-57" text-anchor="end">' + calendarResult.data.user.contributionsCollection.contributionCalendar.totalContributions + ' contributions</text>' + labels.join('') + '</g>';
-            return svg.replace(/viewBox="(-?\d+) (-?\d+) (\d+) (\d+)"/, (_, x, y, w, h) => 'viewBox="' + x + ' ' + (Number(y) - 48) + ' ' + w + ' ' + (Number(h) + 48) + '"').replace(/height="192"/, 'height="240"').replace('</svg>', markup + '</svg>');
-          }
-          async function publish(name) {
-            const url = 'https://api.github.com/repos/' + process.env.REPOSITORY + '/contents/assets/' + name;
-            const headers = {Authorization: 'Bearer ' + process.env.GH_TOKEN, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28'};
-            const old = await fetch(url, {headers});
-            let sha;
-            if (old.ok) sha = (await old.json()).sha;
-            else if (old.status !== 404) throw new Error('Read failed: ' + old.status);
-            const svg = addDates(fs.readFileSync('dist/' + name, 'utf8'), name.includes('dark'));
-            const content = Buffer.from(svg).toString('base64');
-            const response = await fetch(url, {method: 'PUT', headers, body: JSON.stringify({message: 'Refresh contribution animation [skip ci]', content, ...(sha ? {sha} : {})})});
-            if (!response.ok) throw new Error('Publish failed: ' + response.status + ' ' + await response.text());
-          }
-          (async () => {
-            await publish('contribution-snake.svg');
-            await publish('contribution-snake-dark.svg');
-          })().catch(error => {console.error(error); process.exit(1);});
-          NODE
+        run: node scripts/contribution-observatory.mjs
